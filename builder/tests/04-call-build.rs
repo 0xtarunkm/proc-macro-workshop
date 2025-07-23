@@ -6,9 +6,9 @@
 // using the impl From<String> for Box<dyn Error>.
 //
 //     impl CommandBuilder {
-//         pub fn build(&mut self) -> Result<Command, Box<dyn Error>> {
-//             ...
-//         }
+        // pub fn build(&mut self) -> Result<Command, Box<dyn Error>> {
+        //     ...
+        // }
 //     }
 
 use derive_builder::Builder;
