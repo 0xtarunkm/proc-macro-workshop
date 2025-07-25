@@ -5,24 +5,16 @@
 //
 // To run the code:
 //     $ cargo run
+use seq::seq;
 
-use derive_builder::Builder;
-
-#[derive(Builder)]
-pub struct Command {
-    executable: String,
-    args: Vec<String>,
-    env: Vec<String>,
-    current_dir: String,
+macro_rules! expand_to_nothing {
+    ($arg:literal) => {
+        // nothing
+    };
 }
 
-fn main() {
-    let mut builder = Command::builder();
-    builder.executable("cargo".to_owned());
-    builder.args(vec!["build".to_owned(), "--release".to_owned()]);
-    builder.env(vec![]);
-    builder.current_dir("..".to_owned());
+seq!(N in 0..4 {
+    expand_to_nothing!(N);
+});
 
-    let command = builder.build().unwrap();
-    assert_eq!(command.executable, "cargo");
-}
+fn main() {}
